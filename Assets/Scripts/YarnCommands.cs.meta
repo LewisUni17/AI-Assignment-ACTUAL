@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: dce7146ac2fe6cb4ba4a5cdeb29c6ab5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Teammate: {instanceID: 0}
+  - Rival: {instanceID: 0}
+  - Coach: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

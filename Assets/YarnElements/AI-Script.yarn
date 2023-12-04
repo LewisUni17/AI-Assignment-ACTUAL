@@ -1,0 +1,101 @@
+﻿title: AI-Script
+tags:
+---
+
+===
+
+//AI Assingment Script
+//Scenario => Swimming Competition Interactions, Pre Race and Post Race
+//Character One => My Teammate
+//Character Two => My Rival
+//Character Three => Coach
+//Character.interactionNumber
+
+title:Start
+tag:
+---
+<<declare $CharacterOneVisted = false>>
+<<declare $CharacterTwoVisted = false>>
+<<declare $CharacterThreeVisted = false>>
+===
+
+// Dialogue for Pre Race
+
+title:CharacterOne.1
+tag:
+---
+Hello I am Rhys, your teammate.  #line:0262e42 
+
+How are you doing mate? #line:061f7e1 
+-> I'm good thanks, I can't wait to get racing. #line:0edb2ae 
+    Great! #line:0f0c619 
+-> I'm a bit nervous for the race today. #line:03e946f 
+    Don't Be nervous, you'll be fine. #line:0aa9a87 
+
+What event are you racing today? #line:04fe5ce 
+-> 50m freestyle. #line:0858c51 
+    I'm racing that as well, that should be a good race. #line:0d8e03b 
+-> 100m butterfly. #line:0223a84 
+    I'm not racing 100m butterfly, I'm racing the 50m freestyle. #line:062850a 
+-> 400m individual medley. #line:00a3507 
+    Ouch, that's a hard event, I'm glad I'm not doing that. #line:04e35bc 
+===
+
+title:CharacterTwo.1
+tag:
+---
+Hello I am (Character Two = My Rival)  #line:08dde70 
+
+Hello, Long time no see. #line:03c1568 
+
+Yeah, its been ages, nice to see you! #line:07b6d95 
+
+Its great to see you too, How have you been? #line:020bd75 
+-> Yeah, Ive been good. #line:04f55c8 
+-> Not too bad, been up and down. #line:04ab260 
+    How come? #line:0ce8323 
+        I had an injury a couple of weeks ago. #line:0ec703b 
+            What happened? #line:0d1d2f0 
+            -> Injured my shoulder training! #line:0b5d9c0 
+            -> Injured my back in the gym! #line:0801991 
+
+How has training been? #line:0154b89 
+-> Yeah its been great thanks, we have been working hard. #line:0ae9be4 
+-> its been okay, expect for the injury, but we managed to come back training quickly. #line:0b140f1 
+-> I have been out for a couple of weeks due to the injury, so only done a bit of training this past week.  #line:010420a 
+===
+
+title:CharacterThree.1
+tag:
+---
+Hello I am (Character Three = My Coach)  #line:0265164 
+
+How are you feeling today? #line:09f2eac 
+-> I'm feeling good thank you. #line:0fd5690 
+-> I'm a bit nervous today. #line:03a5a7e 
+
+Have you done your warm-up for your race? #line:09e53ff 
+-> Yes, I have just finished it. #line:0d9f943 
+-> Yes, I'm doing it now. #line:0860500 
+-> No, I will be starting it soon.  #line:062c4c4 
+===
+
+//Dialogue for Post Race
+
+title:CharacterOne.2
+tag:
+---
+
+===
+
+title:CharacterTwo.2
+tag:
+---
+
+===
+
+title:CharacterThree.2
+tag:
+---
+
+===
