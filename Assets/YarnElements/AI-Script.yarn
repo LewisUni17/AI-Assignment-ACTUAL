@@ -17,6 +17,9 @@ tag:
 <<declare $CharacterOneVisted = false>>
 <<declare $CharacterTwoVisted = false>>
 <<declare $CharacterThreeVisted = false>>
+<<declare $Player1Injured = false>>
+<<declare $Player1ShoulderInjury = false>>
+<<declare $Player1KneeInjury = false>>
 ===
 
 // Dialogue for Pre Race
@@ -40,57 +43,63 @@ What event are you racing today? #line:04fe5ce
 -> 400m individual medley. #line:00a3507 
     Ouch, that's a hard event, I'm glad I'm not doing that. #line:04e35bc
 
-Well good luck, I hope you do well.
-    Thank you and good luck to you too.
+Well good luck, I hope you do well. #line:042701c 
+    Thank you and good luck to you too. #line:09850f6 
 ===
 
 title:CharacterTwo.1
 tag:
 ---
-Hello I am (Character Two = My Rival)  #line:08dde70 
+Hello I am Josh.  #line:08dde70 
 
-Hello, Long time no see. #line:03c1568 
+Long time no see. #line:03c1568 
 
 Yeah, its been ages, nice to see you! #line:07b6d95 
 
 Its great to see you too, How have you been? #line:020bd75 
--> Yeah, Ive been good. #line:04f55c8 
--> Not too bad, been up and down. #line:04ab260 
+-> Yeah, Ive been good. #line:04f55c8
+-> Not too bad, been up and down. #line:04ab260 // set injury = true
     How come? #line:0ce8323 
         I had an injury a couple of weeks ago. #line:0ec703b 
             What happened? #line:0d1d2f0 
-            -> Injured my shoulder training! #line:0b5d9c0 
-            -> Injured my back in the gym! #line:0801991 
+            -> Injured my shoulder training. #line:0b5d9c0 
+            -> Injured my knee in the gym. #line:0801991 
 
 How has training been? #line:0154b89 
--> Yeah its been great thanks, we have been working hard. #line:0ae9be4 
--> its been okay, expect for the injury, but we managed to come back training quickly. #line:0b140f1 
--> I have been out for a couple of weeks due to the injury, so only done a bit of training this past week.  #line:010420a
+//if injury = false
+-> Yeah its been great thanks, been making good progress lately. #line:0ae9be4
+-> Training has been really hard, hopefully that work will pay off. #line:07e10d9 
+//if injury = true
+-> Its been okay, expect for the injury, but we managed to come back training quickly. #line:0b140f1 
+-> I have been out for a couple of weeks due to the injury. #line:010420a
 
-Well good luck, I'll catch up with you afterwards. 
+Well good luck, I'll catch up with you afterwards.  #line:0932c41 
 ===
 
 title:CharacterThree.1
 tag:
 ---
-Hello I am (Character Three = My Coach)  #line:0265164 
+Hello I am Stuart, your coach.  #line:0265164 
 
 How are you feeling today? #line:09f2eac 
--> I'm feeling good thank you. #line:0fd5690 
+-> I'm feeling good thank you. #line:0fd5690
+    Good i'm glad to hear that. #line:0e45c94 
 -> I'm a bit nervous today. #line:03a5a7e 
+    There's no pressure today, just give it your best. #line:03b3bfc 
 
 Have you done your warm-up for your race? #line:09e53ff 
 -> Yes, I have just finished it. #line:0d9f943 
--> Yes, I'm doing it now. #line:0860500 
--> No, I will be starting it soon.  #line:062c4c4 
+-> Yes, I'm doing it now. #line:0b4faec 
+-> No, I will be starting it soon.  #line:062c4c4
+    Better hurry up, you don't have long! #line:086f4b6 
 
-How are you going to approach the race?
--> I'm going to attack it from the start and hold on.
--> I'm going to build into the race and finish strong.
+How are you going to approach the race? #line:0fd9dc6 
+-> I'm going to attack it from the start and hold on. #line:0139c09 
+-> I'm going to build into the race and finish strong. #line:07db964 
 
-Great plan, good luck and have fun!
+Great plan, good luck and have fun! #line:0d2c238 
 
-I'll see you after the race.
+I'll see you after the race. #line:0ddd500 
 ===
 
 //Dialogue for Post Race
@@ -98,26 +107,116 @@ I'll see you after the race.
 title:CharacterOne.2
 tag:
 ---
-Hey buddy, How was the race?
--> Yeah amazing! I won!
--> It was a good race, I'm happy with that
--> Oh my, that was hard
+//for 50m Freestyle Answer
+Wow what a race, What place did you come? #line:0213429 
+-> I won and I'm really happy with my time as well. #line:0ac7833 
+    Well done that was amazing. #line:058c063 
+-> Yeah it was a good race, I got 3rd, not bad. #line:0500c12 
+    Thats still really good, you should be happy with that. #line:0cc3242 
+-> I got 4th, gutted I just missed the medals. #line:0ab9c66 
+    Oh well, better luck next time. #line:0000c5e 
 
-What time did you get?
+//for 100m Butterfly / 400m individual Medley Answer
+Hey buddy, How was the race? #line:067751f 
+-> Yeah amazing! I won! #line:05d7943 
+    Awesome, I'm so proud of you. #line:006666d 
+-> It was a good race, I'm happy with that #line:04b2a62 
+    Well done! #line:085f783 
+-> Oh my, that was hard #line:0ad77da
+    No worries, better luck next time. #line:0a82c8f 
+
+What time did you get? #line:0a257b6 
 // for 50m Freestyle (22.51, 22.98, 23.34)
 // for 100m Butterfly (51.52, 52.37, 53.03)
 // for 400 Individual Medley (4.19.87, 4.24.68, 4.28.45)
 
+Is that a Pb for you? #line:0fd8b5c 
+// for options 1,2 for prev question
+    Yes, that's a new PB for me! #line:091858b 
+        Congratulations, that is awesome. #line:0d7021d 
+//for option 3 for prev question
+    No, not a PB but I wasn't too far away. #line:05ac7cf 
+        Oh well, better luck next time.  #line:023794c 
+
+I'll see you next week at training, have a good weekend. #line:0ccf80a 
+    Thank you, see you next week. #line:082e3fa 
+        Goodbye. #line:088bf11 
+            Goodbye. #line:08b01b5 
 ===
 
 title:CharacterTwo.2
 tag:
 ---
+Well done, great race that was! #line:0bd9c4f 
+    Thank you, I appreciate it. #line:09e3769 
 
+How was the race for you? #line:06ccfe0 
+-> Yeah very happy thanks, that was a PB for me! #line:0c876b1 
+-> Not my best race but it was a good result. #line:0026291 
+
+//if injured = false
+It looks like your training has paid off. #line:014df6e 
+    Yeah I'm really enjoying swimming at the moment. #line:0fe6d56 
+        What have you been doing in training recently? #line:03726a0 
+        -> We have done more sprint training to get faster. #line:0371159 
+        -> We have done more distacne training to improve my stamina #line:0e4985e 
+        -> I've just been enjoying it and coach always says, "happy swimmers are faster swimmers". #line:0ec2f4f 
+
+//if injured = true
+//if Shoulderinjury = true
+How was your shoulder during the race? #line:0a66c7a 
+-> My shoulder felt okay which is great, making good progress with it. #line:06b45f6 
+    Thats great to hear, I'm glad you're recovering. #line:006ec13 
+        Thanks, I can't wait to be back to full fitness.  #line:079e5eb 
+-> It was hurting a little bit but it was okay. #line:084be22 
+    Dont worry, you'll be back to 100% in no time. #line:03f084c 
+        thank you I hope so. #line:0e39848 
+
+//if kneeinjury = true
+How was your knee during the race? #line:075c52f 
+-> My shoulder felt okay which is great, making good progress with it. #line:0b87961 
+    Thats great to hear, I'm glad you're recovering. #line:08c8f2f 
+        Thanks, I can't wait to be back to full fitness.  #line:0c98d24 
+-> It was hurting a little bit but it was okay. #line:006b966 
+    Dont worry, you'll be back to 100% in no time. #line:06a01ff 
+        thank you I hope so. #line:0e6aa91 
+
+It was great to see you today, it's always a close race between us. #line:0c7c3a5 
+    We always manage to get the best out of each other, great racing. #line:01c541c 
+        Good luck for your next races and I hope to see you soon. #line:0961f5c 
+            All the best to you too, see you soon. #line:065b28a 
+                Goodbye! #line:0af30e5 
 ===
 
 title:CharacterThree.2
 tag:
 ---
+Hey, well done great race.
+
+How did you feel it went?
+-> Yeah it was good, I'm very happy.
+    You should be happy, you raced and swam amazingly.
+        Thank you.
+-> I think it was alright, It could've been better I feel.
+    It was a good race from you, you should be happy.
+    // if raceAttacked
+    You attacked the race and took it on from the front, well done.
+    // if raceBuilt
+    You built into the patiently and finished really strong, well done.
+-> Not my best race, I'm not sure what wrong to be honest.
+    Sometimes we have bad days, look on the positive side of things.
+    // if raceAttacked
+    You attacked the race and took it on from the front.
+    We need to work on the finishing speed next.
+    // if raceBuilt
+    You didn't start the race fast enough but you finished really strong.
+    We need to work on your speed next.
+
+Well done today, get some rest this weekend and I'll see you back in training next week.
+    Will do, thank you for coaching me, I can't wait to get back to work.
+        Thats the right attitude, whether you race good or bad, always focus on the next race.
+        Learn from our mistake and look what what we can do better.
+            Thank you, see you next week, have a good weekend.
+                Goodbye.
 
 ===

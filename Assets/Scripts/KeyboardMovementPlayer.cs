@@ -12,22 +12,22 @@ public class KeyboardMovementPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.S))
         {
             player1.transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.W))
         {
             player1.transform.Translate(Vector3.back * Time.deltaTime * movementSpeed);
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.A))
         {
             player1.transform.Translate(Vector3.right * Time.deltaTime * movementSpeed);
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.D))
         {
             player1.transform.Translate(Vector3.left * Time.deltaTime * movementSpeed);
         }
