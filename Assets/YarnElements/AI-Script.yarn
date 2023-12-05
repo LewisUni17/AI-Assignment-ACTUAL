@@ -36,9 +36,12 @@ What event are you racing today? #line:04fe5ce
 -> 50m freestyle. #line:0858c51 
     I'm racing that as well, that should be a good race. #line:0d8e03b 
 -> 100m butterfly. #line:0223a84 
-    I'm not racing 100m butterfly, I'm racing the 50m freestyle. #line:062850a 
+    I'm not racing 100m butterfly, I'm racing the 50m freestyle instead. #line:062850a 
 -> 400m individual medley. #line:00a3507 
-    Ouch, that's a hard event, I'm glad I'm not doing that. #line:04e35bc 
+    Ouch, that's a hard event, I'm glad I'm not doing that. #line:04e35bc
+
+Well good luck, I hope you do well.
+    Thank you and good luck to you too.
 ===
 
 title:CharacterTwo.1
@@ -62,7 +65,9 @@ Its great to see you too, How have you been? #line:020bd75
 How has training been? #line:0154b89 
 -> Yeah its been great thanks, we have been working hard. #line:0ae9be4 
 -> its been okay, expect for the injury, but we managed to come back training quickly. #line:0b140f1 
--> I have been out for a couple of weeks due to the injury, so only done a bit of training this past week.  #line:010420a 
+-> I have been out for a couple of weeks due to the injury, so only done a bit of training this past week.  #line:010420a
+
+Well good luck, I'll catch up with you afterwards. 
 ===
 
 title:CharacterThree.1
@@ -78,6 +83,14 @@ Have you done your warm-up for your race? #line:09e53ff
 -> Yes, I have just finished it. #line:0d9f943 
 -> Yes, I'm doing it now. #line:0860500 
 -> No, I will be starting it soon.  #line:062c4c4 
+
+How are you going to approach the race?
+-> I'm going to attack it from the start and hold on.
+-> I'm going to build into the race and finish strong.
+
+Great plan, good luck and have fun!
+
+I'll see you after the race.
 ===
 
 //Dialogue for Post Race
@@ -85,6 +98,15 @@ Have you done your warm-up for your race? #line:09e53ff
 title:CharacterOne.2
 tag:
 ---
+Hey buddy, How was the race?
+-> Yeah amazing! I won!
+-> It was a good race, I'm happy with that
+-> Oh my, that was hard
+
+What time did you get?
+// for 50m Freestyle (22.51, 22.98, 23.34)
+// for 100m Butterfly (51.52, 52.37, 53.03)
+// for 400 Individual Medley (4.19.87, 4.24.68, 4.28.45)
 
 ===
 

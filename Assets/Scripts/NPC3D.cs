@@ -83,6 +83,7 @@ public class NPC3D : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("triggered" + other.tag);
         //if other is player
         if (other.gameObject.CompareTag("Player"))
         {
