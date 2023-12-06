@@ -14,12 +14,14 @@ tags:
 title:Start
 tag:
 ---
-<<declare $CharacterOneVisted = false>>
-<<declare $CharacterTwoVisted = false>>
-<<declare $CharacterThreeVisted = false>>
-<<declare $Player1Injured = false>>
-<<declare $Player1ShoulderInjury = false>>
-<<declare $Player1KneeInjury = false>>
+<<declare $characterOneVisted = false>>
+<<declare $characterTwoVisted = false>>
+<<declare $characterThreeVisted = false>>
+<<declare $player1Injured = false>>
+<<declare $player1ShoulderInjury = false>>
+<<declare $player1KneeInjury = false>>
+<<declare $player1Event to "unknown">>
+<<declare $playerPB = false>>
 ===
 
 // Dialogue for Pre Race
@@ -27,24 +29,94 @@ tag:
 title:CharacterOne.1
 tag:
 ---
-Hello I am Rhys, your teammate.  #line:0262e42 
+<<if $characterOneVisted is false>>
+    Hello I am Rhys, your teammate.  #line:0262e42 
+    <<set $characterOneVisted = true>>
+    How are you doing mate? #line:061f7e1 
+    -> I'm good thanks, I can't wait to get racing. #line:0edb2ae 
+        Great! #line:0f0c619 
+    -> I'm a bit nervous for the race today. #line:03e946f 
+        Don't Be nervous, you'll be fine. #line:0aa9a87 
 
-How are you doing mate? #line:061f7e1 
--> I'm good thanks, I can't wait to get racing. #line:0edb2ae 
-    Great! #line:0f0c619 
--> I'm a bit nervous for the race today. #line:03e946f 
-    Don't Be nervous, you'll be fine. #line:0aa9a87 
+    What event are you racing today? #line:04fe5ce 
+    -> 50m freestyle. #line:0858c51
+        <<set $player1Event to "freestyle">>
+        I'm racing that as well, that should be a good race. #line:0d8e03b 
+    -> 100m butterfly. #line:0223a84 
+        <<set $player1Event to "butterfly">>
+        I'm not racing 100m butterfly, I'm racing the 50m freestyle instead. #line:062850a 
+    -> 400m individual medley. #line:00a3507 
+        <<set $player1Event to "medley">>
+        Ouch, that's a hard event, I'm glad I'm not doing that. #line:04e35bc
 
-What event are you racing today? #line:04fe5ce 
--> 50m freestyle. #line:0858c51 
-    I'm racing that as well, that should be a good race. #line:0d8e03b 
--> 100m butterfly. #line:0223a84 
-    I'm not racing 100m butterfly, I'm racing the 50m freestyle instead. #line:062850a 
--> 400m individual medley. #line:00a3507 
-    Ouch, that's a hard event, I'm glad I'm not doing that. #line:04e35bc
+    Well good luck, I hope you do well. #line:042701c 
+        Thank you and good luck to you too. #line:09850f6
+<<else>> 
+    Hello again
 
-Well good luck, I hope you do well. #line:042701c 
-    Thank you and good luck to you too. #line:09850f6 
+    //for 50m Freestyle Answer
+    <<if $player1Event is "freestyle">>
+    Wow what a race, What place did you come? #line:0213429 
+    -> I won and I'm really happy with my time as well. #line:0ac7833 
+        Well done that was amazing. #line:058c063 
+    -> Yeah it was a good race, I got 3rd, not bad. #line:0500c12 
+        Thats still really good, you should be happy with that. #line:0cc3242 
+    -> I got 4th, gutted I just missed the medals. #line:0ab9c66 
+        Oh well, better luck next time. #line:0000c5e 
+    <<else>>
+    //for 100m Butterfly / 400m individual Medley Answer
+    Hey buddy, How was the race? #line:067751f 
+    -> Yeah amazing! I won! #line:05d7943 
+        Awesome, I'm so proud of you. #line:006666d 
+    -> It was a good race, I'm happy with that #line:04b2a62 
+        Well done! #line:085f783 
+    -> Oh my, that was hard #line:0ad77da
+        No worries, better luck next time. #line:0a82c8f
+    <<endif>> 
+
+    What time did you get? #line:0a257b6 
+    // for 50m Freestyle (22.51, 22.98, 23.34)
+    <<if $player1Event is "freestyle">>
+    -> My time was - 22.51
+        <<set $playerPB = true>>
+    -> My time was - 22.98
+        <<set $playerPB = true>>
+    -> My time was - 23.34
+        <<set $playerPB = false>>
+    // for 100m Butterfly (51.52, 52.37, 53.03)
+    <<elseif $player1Event is "butterfly">>
+    -> My time was - 51.52
+        <<set $playerPB = true>>
+    -> My time was - 52.37
+        <<set $playerPB = true>>
+    -> My time was - 53.03
+        <<set $playerPB = false>>
+    // for 400 Individual Medley (4.19.87, 4.24.68, 4.28.45)
+        <<elseif $player1Event is "medley">>
+    -> My time was - 4.19.87
+        <<set $playerPB = true>>
+    -> My time was - 4.24.68
+        <<set $playerPB = true>>
+    -> My time was - 4.26.45
+        <<set $playerPB = false>>
+    <<endif>>
+
+    Is that a Pb for you? #line:0fd8b5c 
+    // for options 1,2 for prev question
+        <<if $playerPB is true>>
+        Yes, that's a new PB for me! #line:091858b 
+            Congratulations, that is awesome. #line:0d7021d 
+    //for option 3 for prev question
+        <<elseif $playerPB is false>>
+        No, not a PB but I wasn't too far away. #line:05ac7cf 
+            Oh well, better luck next time.  #line:023794c 
+        <<endif>>
+
+    I'll see you next week at training, have a good weekend. #line:0ccf80a 
+        Thank you, see you next week. #line:082e3fa 
+            Goodbye. #line:088bf11 
+                Goodbye. #line:08b01b5 
+<<endif>>
 ===
 
 title:CharacterTwo.1
@@ -107,41 +179,7 @@ I'll see you after the race. #line:0ddd500
 title:CharacterOne.2
 tag:
 ---
-//for 50m Freestyle Answer
-Wow what a race, What place did you come? #line:0213429 
--> I won and I'm really happy with my time as well. #line:0ac7833 
-    Well done that was amazing. #line:058c063 
--> Yeah it was a good race, I got 3rd, not bad. #line:0500c12 
-    Thats still really good, you should be happy with that. #line:0cc3242 
--> I got 4th, gutted I just missed the medals. #line:0ab9c66 
-    Oh well, better luck next time. #line:0000c5e 
 
-//for 100m Butterfly / 400m individual Medley Answer
-Hey buddy, How was the race? #line:067751f 
--> Yeah amazing! I won! #line:05d7943 
-    Awesome, I'm so proud of you. #line:006666d 
--> It was a good race, I'm happy with that #line:04b2a62 
-    Well done! #line:085f783 
--> Oh my, that was hard #line:0ad77da
-    No worries, better luck next time. #line:0a82c8f 
-
-What time did you get? #line:0a257b6 
-// for 50m Freestyle (22.51, 22.98, 23.34)
-// for 100m Butterfly (51.52, 52.37, 53.03)
-// for 400 Individual Medley (4.19.87, 4.24.68, 4.28.45)
-
-Is that a Pb for you? #line:0fd8b5c 
-// for options 1,2 for prev question
-    Yes, that's a new PB for me! #line:091858b 
-        Congratulations, that is awesome. #line:0d7021d 
-//for option 3 for prev question
-    No, not a PB but I wasn't too far away. #line:05ac7cf 
-        Oh well, better luck next time.  #line:023794c 
-
-I'll see you next week at training, have a good weekend. #line:0ccf80a 
-    Thank you, see you next week. #line:082e3fa 
-        Goodbye. #line:088bf11 
-            Goodbye. #line:08b01b5 
 ===
 
 title:CharacterTwo.2
