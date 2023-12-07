@@ -86,7 +86,7 @@ public class AI_Controller_Idle_Move : MonoBehaviour
         }
 
         // Set the animator's Speed parameter based on the (possibly modified) speed that the nav mesh agent wants to move at.
-        animator.SetFloat("Speed", speed, speedDampTime, Time.deltaTime);
+        //animator.SetFloat("Speed", speed, speedDampTime, Time.deltaTime);
     }
 
     private void Idle()
