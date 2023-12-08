@@ -27,6 +27,7 @@ public class CharacterStop : MonoBehaviour
     }
 
     // Called when dialogue ends
+    [YarnCommand("stopTalking")]
     public void EndDialogue()
     {
         // Resume Nav Mesh Agent

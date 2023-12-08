@@ -1,14 +1,14 @@
 {
   "projectFileVersion": 2,
   "sourceFiles": [
-    "**/*.yarn"
+    "AI-Script.yarn"
   ],
   "excludeFiles": [
     "**/*~/*"
   ],
   "localisation": {
     "en": {
-      "assets": "."
+      "assets": "..\\VoiceOvers"
     }
   },
   "baseLanguage": "en",

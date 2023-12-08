@@ -1,4 +1,4 @@
-﻿title: AI-Script
+title: AI-Script
 tags:
 ---
 
@@ -32,6 +32,7 @@ tag:
 ---
 // Dialogue for character one, my teammate Rhys
 // Dialogue for pre race
+//<<startTalking>>
 <<if $characterOneVisted is false>>
     Hello I am Rhys, your teammate.  #line:0262e42 
     <<set $characterOneVisted = true>>
@@ -120,6 +121,7 @@ tag:
             Goodbye. #line:088bf11 
                 Goodbye. #line:08b01b5
                 <<set $characterOneVistedTwice to true>> 
+//<<stopTalking>>
 <<endif>>
 ===
 
